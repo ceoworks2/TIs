@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Укрпошта - Головна</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #0e2f4b;
+            background-color: #ffffff;
+        }
+        
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        
+        /* Header Styles */
+        .header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header-top {
+            padding: 14px 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 186px;
+            height: 50px;
+            margin-top: 10px;
+        }
+        
+        .nav-menu {
+            display: none;
+            padding: 16px 0;
+            background-color: #ffffff;
+        }
+        
+        .nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            list-style: none;
+        }
+        
+        .nav-item {
+            font-size: 16px;
+            font-weight: 400;
+            color: #99a2aa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-item:hover {
+            color: #0e2f4b;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: #fec524;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0;
+        }
+        
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .hero-title {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+        
+        .hero-subtitle {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.4;
+            color: #0e2f4b;
+            margin-bottom: 32px;
+        }
+        
+        .search-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 3px 35px rgba(95, 98, 102, 0.17);
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 16px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            color: #757575;
+            outline: none;
+        }
+        
+        .search-input::placeholder {
+            color: #757575;
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+        
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 24px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 3px 35px rgba(95, 98, 102, 0.17);
+            text-decoration: none;
+            color: #99a2aa;
+            font-size: 16px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0px 6px 20px rgba(95, 98, 102, 0.25);
+        }
+        
+        .action-btn img {
+            width: 30px;
+            height: 30px;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: #f8f8f8;
+            padding: 80px 0;
+        }
+        
+        .services-content {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+        
+        .services-intro {
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+        }
+        
+        .services-title {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #0e2f4b;
+        }
+        
+        .services-description {
+            font-size: 16px;
+            line-height: 1.4;
+            color: #0e2f4b;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        
+        .service-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .service-title {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #0e2f4b;
+            margin-bottom: 8px;
+        }
+        
+        .service-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #0e2f4b;
+            text-decoration: none;
+            margin-top: 8px;
+        }
+        
+        .service-link img {
+            width: 20px;
+            height: 6px;
+        }
+        
+        /* Business Section */
+        .business {
+            background-color: #042c4b;
+            padding: 80px 0;
+            color: #ffffff;
+        }
+        
+        .business-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .business-title {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #f8f8f8;
+        }
+        
+        .business-description {
+            font-size: 16px;
+            line-height: 1.4;
+            color: #99a2aa;
+        }
+        
+        .business-btn {
+            display: inline-block;
+            padding: 28px 34px;
+            background-color: #fdc13d;
+            color: #0e2f4b;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            align-self: center;
+        }
+        
+        .business-btn:hover {
+            background-color: #fec524;
+            transform: translateY(-2px);
+        }
+        
+        /* Announcement Section */
+        .announcement {
+            background-color: #f8f8f8;
+            padding: 80px 0;
+        }
+        
+        .announcement-card {
+            background-color: #fdc13d;
+            border-radius: 10px;
+            padding: 36px;
+            margin-bottom: 40px;
+        }
+        
+        .announcement-text {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.3;
+            color: #0e2f4b;
+            margin-bottom: 12px;
+        }
+        
+        .announcement-description {
+            font-size: 16px;
+            line-height: 1.4;
+            color: #0e2f4b;
+            margin-bottom: 12px;
+        }
+        
+        .announcement-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #0e2f4b;
+            text-decoration: none;
+        }
+        
+        /* Financial Services */
+        .financial {
+            background-color: #f8f8f8;
+            padding: 40px 0;
+        }
+        
+        .financial-title {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #0e2f4b;
+            margin-bottom: 32px;
+        }
+        
+        .financial-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            position: relative;
+        }
+        
+        .financial-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 16px;
+        }
+        
+        .financial-icon {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .financial-card-title {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #0e2f4b;
+        }
+        
+        /* Index Search Section */
+        .index-search {
+            background-color: #0e2f4b;
+            padding: 80px 0;
+            color: #ffffff;
+        }
+        
+        .index-title {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #f8f8f8;
+            margin-bottom: 36px;
+        }
+        
+        .index-description {
+            font-size: 16px;
+            line-height: 1.4;
+            color: #99a2aa;
+            margin-bottom: 40px;
+        }
+        
+        .index-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .index-input {
+            padding: 28px;
+            border: 1px solid #e8ebee;
+            border-radius: 10px;
+            font-size: 16px;
+            color: #6c757d;
+            background-color: #ffffff;
+        }
+        
+        .index-btn {
+            padding: 28px 34px;
+            background-color: #fdc13d;
+            color: #0e2f4b;
+            font-size: 20px;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .index-btn:hover {
+            background-color: #fec524;
+        }
+        
+        /* News Section */
+        .news {
+            background-color: #f8f8f8;
+            padding: 80px 0;
+        }
+        
+        .news-title {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #0e2f4b;
+            margin-bottom: 32px;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        
+        .news-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .news-header {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        .news-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            flex-shrink: 0;
+        }
+        
+        .news-content {
+            flex: 1;
+        }
+        
+        .news-date {
+            font-size: 14px;
+            color: #99a2aa;
+            margin-bottom: 6px;
+        }
+        
+        .news-headline {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.3;
+            color: #0e2f4b;
+        }
+        
+        .news-text {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #0e2f4b;
+        }
+        
+        /* Legal Section */
+        .legal {
+            background-color: #f8f8f8;
+            padding: 40px 0;
+        }
+        
+        .legal-title {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #0e2f4b;
+            margin-bottom: 40px;
+        }
+        
+        .legal-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        
+        .legal-input {
+            padding: 32px 12px;
+            background-color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #99a2aa;
+            text-align: center;
+        }
+        
+        /* Online Services */
+        .online-services {
+            background-color: #fec524;
+            padding: 40px;
+            position: relative;
+        }
+        
+        .online-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .online-title {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #ffffff;
+        }
+        
+        .online-subtitle {
+            font-size: 16px;
+            line-height: 1.4;
+            color: #0e2f4b;
+        }
+        
+        .app-section {
+            margin-top: 26px;
+        }
+        
+        .app-title {
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #0e2f4b;
+            margin-bottom: 10px;
+        }
+        
+        .app-stores {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .store-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px 34px;
+            background-size: cover;
+            background-position: center;
+            height: 50px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+        
+        .store-text {
+            font-size: 10px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 36px;
+            height: 38px;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #1d2023;
+            color: #99a2aa;
+            padding: 54px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+        
+        .footer-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 22px;
+        }
+        
+        .footer-link {
+            font-size: 16px;
+            color: #99a2aa;
+            text-decoration: none;
+            line-height: 1.2;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: #ffffff;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 24px;
+            }
+            
+            .hero-title {
+                font-size: 40px;
+            }
+            
+            .search-container {
+                flex-direction: row;
+                align-items: center;
+            }
+            
+            .action-buttons {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .financial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .legal-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .index-form {
+                flex-direction: row;
+                align-items: center;
+            }
+            
+            .index-input {
+                flex: 1;
+            }
+            
+            .app-stores {
+                flex-direction: row;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 32px;
+            }
+            
+            .nav-menu {
+                display: block;
+            }
+            
+            .nav-list {
+                flex-direction: row;
+                gap: 28px;
+            }
+            
+            .hero-title {
+                font-size: 44px;
+            }
+            
+            .services-title,
+            .business-title,
+            .financial-title,
+            .index-title,
+            .news-title,
+            .legal-title,
+            .online-title {
+                font-size: 48px;
+            }
+            
+            .services-content {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 100px;
+            }
+            
+            .services-intro {
+                flex: 1;
+            }
+            
+            .services-grid {
+                flex: 2;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .action-buttons {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .financial-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .legal-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .footer-section {
+                flex: 1;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 60px 0 100px;
+            }
+            
+            .services {
+                padding: 100px 0;
+            }
+            
+            .business {
+                padding: 120px 0;
+            }
+            
+            .index-search {
+                padding: 164px 0;
+            }
+            
+            .news {
+                padding: 80px 0;
+            }
+        }
+        
+        @media (min-width: 1280px) {
+            .container {
+                padding: 0 56px;
+            }
+        }
+    </style>
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Ftenwismqon3010back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <img src="../assets/images/img_link_site_ua_logo_svg.svg" alt="Укрпошта" class="logo" />
+            </div>
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#" class="nav-item">Трекінг</a></li>
+                    <li><a href="#" class="nav-item">Послуги</a></li>
+                    <li><a href="#" class="nav-item">Тарифи</a></li>
+                    <li><a href="#" class="nav-item">Відділення</a></li>
+                    <li><a href="#" class="nav-item">Філателія</a></li>
+                    <li><a href="#" class="nav-item">Кар'єра</a></li>
+                    <li><a href="#" class="nav-item">Бізнесу</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div>
+                    <h1 class="hero-title">Оформлюйте<br />передплату!</h1>
+                    <p class="hero-subtitle">Досхочу вибирайте й призи вигравайте</p>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Введіть номер відправлення" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="action-buttons">
+                <a href="#" class="action-btn">
+                    <img src="../assets/images/img_group.svg" alt="Розрахувати" />
+                    <span>Розрахувати</span>
+                </a>
+                <a href="#" class="action-btn">
+                    <img src="../assets/images/img_svg.svg" alt="Оформити" />
+                    <span>Оформити</span>
+                </a>
+                <a href="#" class="action-btn">
+                    <img src="../assets/images/img_svg_blue_gray_300.svg" alt="Знайти індекс" />
+                    <span>Знайти індекс</span>
+                </a>
+                <a href="#" class="action-btn">
+                    <img src="../assets/images/img_svg_black_900.svg" alt="Передплатити" />
+                    <span>Передплатити</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <div class="services-content">
+                <div class="services-intro">
+                    <h2 class="services-title">Поштові<br />послуги</h2>
+                    <div class="services-description">
+                        <p>Замовляйте доставку у найвіддаленіші куточки України, відправляйте й отримуйте посилки з усього світу і навпаки.</p>
+                        <p>Виберіть доставку, яка найкраще підійде вам за термінами пересилання і вартістю.</p>
+                    </div>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3 class="service-title">Доставка<br />по Україні</h3>
+                        <a href="#" class="service-link">
+                            <span>Докладніше</span>
+                            <img src="../assets/images/img_symbol.svg" alt="Arrow" />
+                        </a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3 class="service-title">Доставка<br />документів</h3>
+                        <a href="#" class="service-link">
+                            <span>Докладніше</span>
+                            <img src="../assets/images/img_symbol.svg" alt="Arrow" />
+                        </a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3 class="service-title">Доставка з інтернет-<br />магазинів</h3>
+                        <a href="#" class="service-link">
+                            <span>Докладніше</span>
+                            <img src="../assets/images/img_symbol.svg" alt="Arrow" />
+                        </a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3 class="service-title">Доставка ліків</h3>
+                        <a href="#" class="service-link">
+                            <span>Докладніше</span>
+                            <img src="../assets/images/img_symbol.svg" alt="Arrow" />
+                        </a>
+                    </div>
+                    
+                    <div class="service-card" style="background-image: url('../assets/images/img_svg_180x370.png'); background-size: cover;">
+                        <h3 class="service-title">Доставка<br />по світу</h3>
+                        <a href="#" class="service-link">
+                            <span>Докладніше</span>
+                            <img src="../assets/images/img_symbol.svg" alt="Arrow" />
+                        </a>
+                    </div>
+                    
+                    <div class="service-card" style="background-image: url('../assets/images/img_svg_blue_gray_900_01.png'); background-size: cover;">
+                        <h3 class="service-title">Доставка в<br />Україну</h3>
+                        <a href="#" class="service-link">
+                            <span>Докладніше</span>
+                            <img src="../assets/images/img_symbol.svg" alt="Arrow" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="business">
+        <div class="container">
+            <div class="business-content">
+                <h2 class="business-title">Започаткуйте успішний<br />міжнародний бізнес!</h2>
+                <p class="business-description">Продавайте товари за кордон через інтернет<br />— нам довіряють 25 тисяч підприємців</p>
+                <a href="#" class="business-btn">Перейти</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="announcement">
+        <div class="container">
+            <div class="announcement-card">
+                <h3 class="announcement-text">Укрпошта надала благодійної та гуманітарної допомоги на понад 150 мільйонів гривень</h3>
+                <p class="announcement-description">У 2022 році, коли росія вдалася до повномасштабного вторгнення на територію нашої держави, Укрпошта, окрім основних…</p>
+                <a href="#" class="announcement-link">
+                    <span>Докладніше</span>
+                    <img src="../assets/images/img_symbol.svg" alt="Arrow" />
+                </a>
+            </div>
+            
+            <h2 class="financial-title">Фінансові послуги</h2>
+            
+            <div class="financial-grid">
+                <div class="financial-card">
+                    <div class="financial-icon" style="background-image: url('../assets/images/img_svg_indigo_200_01.png');"></div>
+                    <h3 class="financial-card-title">Грошові<br />перекази</h3>
+                    <a href="#" class="service-link">
+                        <span>Докладніше</span>
+                        <img src="../assets/images/img_symbol.svg" alt="Arrow" />
+                    </a>
+                </div>
+                
+                <div class="financial-card">
+                    <div class="financial-icon"></div>
+                    <h3 class="financial-card-title">Міжнародні<br />перекази</h3>
+                    <a href="#" class="service-link">
+                        <span>Докладніше</span>
+                        <img src="../assets/images/img_symbol.svg" alt="Arrow" />
+                    </a>
+                </div>
+                
+                <div class="financial-card">
+                    <div class="financial-icon"></div>
+                    <h3 class="financial-card-title">Страхування</h3>
+                    <a href="#" class="service-link">
+                        <span>Докладніше</span>
+                        <img src="../assets/images/img_symbol.svg" alt="Arrow" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="index-search">
+        <div class="container">
+            <h2 class="index-title">Знайти індекс</h2>
+            <p class="index-description">Поштовий індекс — це код із 5 цифр, який допомагає пришвидшити сортування та доставку відправлень. Поштовий індекс мають всі відділення Укрпошти та всі населені пункти України.</p>
+            
+            <div class="index-form">
+                <input type="text" class="index-input" placeholder="Введіть назву населеного пункту" />
+                <button class="index-btn">Знайти</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="news">
+        <div class="container">
+            <h2 class="news-title">Новини</h2>
+            
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-header">
+                        <img src="../assets/images/img_350_icon_01_png.png" alt="News" class="news-icon" />
+                        <div class="news-content">
+                            <time class="news-date">06.11.2023</time>
+                            <h3 class="news-headline">Відновлення історичної назви міста Звягель</h3>
+                        </div>
+                    </div>
+                    <p class="news-text">09 листопада п.р. відбудеться погашення</p>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-header">
+                        <img src="../assets/images/img_pin_2_png.png" alt="News" class="news-icon" />
+                        <div class="news-content">
+                            <time class="news-date">03.11.2023</time>
+                            <h3 class="news-headline">У селі Архангельське на Херсонщині відкрили стаціонарне відділення Укрпошти</h3>
+                        </div>
+                    </div>
+                    <p class="news-text">Днями відновило свою роботу стаціонарне автоматизоване відділення Укрпошти в селищі Архангельське (74022)…</p>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-header">
+                        <img src="../assets/images/img_pin_2_png.png" alt="News" class="news-icon" />
+                        <div class="news-content">
+                            <time class="news-date">03.11.2023</time>
+                            <h3 class="news-headline">Укрпошта в Японії: українські марки на філателістичній виставці JAPEX2023</h3>
+                        </div>
+                    </div>
+                    <p class="news-text">Сьогодні відбулося урочисте відкриття Всеяпонської філателістичної виставки JAPEX2023 під загальною назвою…</p>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-header">
+                        <img src="../assets/images/img_pin_2_png.png" alt="News" class="news-icon" />
+                        <div class="news-content">
+                            <time class="news-date">03.11.2023</time>
+                            <h3 class="news-headline">Півтора року співпраці Укрпошти та Укрзалізниці: перевезено ≈15 млн відправлень та виплачено ≈170 млн грн…</h3>
+                        </div>
+                    </div>
+                    <p class="news-text">В Укрпошти й Укрзалізниці спільною є не лише основа «укр», а й проєкти, що реалізуються для підтримки українців та України. …</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="legal">
+        <div class="container">
+            <h2 class="legal-title">Для юридичних осіб</h2>
+            
+            <div class="legal-grid">
+                <input type="text" class="legal-input" placeholder="Відправлення по Україні" />
+                <input type="text" class="legal-input" placeholder="Експорт" />
+                <input type="text" class="legal-input" placeholder="Програмне забезпечення" />
+                <input type="text" class="legal-input" placeholder="Укласти договір" />
+                <input type="text" class="legal-input" placeholder="Інтеграція API" />
+                <input type="text" class="legal-input" placeholder="Особистий кабінет" />
+            </div>
+        </div>
+    </section>
+
+    <section class="online-services">
+        <div class="container">
+            <div class="online-content">
+                <img src="../assets/images/img_banner_online_services_svg.svg" alt="Online Services" style="width: 100%; height: 360px; object-fit: cover;" />
+                
+                <h2 class="online-title">Онлайн-сервіси Укрпошти</h2>
+                <p class="online-subtitle">Оформлюй, відправляй та відстежуй "на ходу"</p>
+                
+                <div class="app-section">
+                    <h3 class="app-title">Мобільний застосунок</h3>
+                    <div class="app-stores">
+                        <a href="#" class="store-btn" style="background-image: url('../assets/images/img_group_white_a700.png');">
+                            <span class="store-text">Завантажити з</span>
+                        </a>
+                        <a href="#" class="store-btn" style="background-image: url('../assets/images/img_group_white_a700_50x170.svg');">
+                            <span class="store-text">Завантажити з</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <h3 class="app-title">Чат-бот</h3>
+                
+                <div class="social-icons">
+                    <img src="../assets/images/img_link.png" alt="Social" class="social-icon" />
+                    <img src="../assets/images/img_link_38x36.png" alt="Social" class="social-icon" />
+                    <img src="../assets/images/img_link_1.png" alt="Social" class="social-icon" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">Загальна інформація</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Про Укрпошту</a>
+                        <a href="#" class="footer-link">Наглядова рада</a>
+                        <a href="#" class="footer-link">Керівництво</a>
+                        <a href="#" class="footer-link">Дирекції</a>
+                        <a href="#" class="footer-link">Публічна інформація</a>
+                        <a href="#" class="footer-link">Закупівлі</a>
+                        <a href="#" class="footer-link">Продаж і оренда нерухомості</a>
+                        <a href="#" class="footer-link">Протидія корупції</a>
+                        <a href="#" class="footer-link">Політика безпеки дорожнього руху</a>
+                        <a href="#" class="footer-link">Конфіденційність</a>
+                        <a href="#" class="footer-link">Для представників ЗМІ</a>
+                        <a href="#" class="footer-link">Новини</a>
+                        <a href="#" class="footer-link">Акції</a>
+                        <a href="#" class="footer-link">Контакт-центр</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Поштові послуги</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Укрпошта Експрес</a>
+                        <a href="#" class="footer-link">Укрпошта Стандарт</a>
+                        <a href="#" class="footer-link">Укрпошта Документи</a>
+                        <a href="#" class="footer-link">Доставка по світу</a>
+                        <a href="#" class="footer-link">Доставка в Україну</a>
+                        <a href="#" class="footer-link">Великогабаритні або великовагові відправлення</a>
+                        <a href="#" class="footer-link">Кур'єрська доставка</a>
+                        <a href="#" class="footer-link">Розрахунок вартості</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Фінансові послуги</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Переказ «З картки додому»</a>
+                        <a href="#" class="footer-link">Переказ «З картки до відділення»</a>
+                        <a href="#" class="footer-link">Переказ «З картки на картку»</a>
+                        <a href="#" class="footer-link">Міжнародні поштові перекази</a>
+                        <a href="#" class="footer-link">Внутрішні поштові перекази</a>
+                        <a href="#" class="footer-link">Платежі</a>
+                        <a href="#" class="footer-link">Страхові послуги</a>
+                        <a href="#" class="footer-link">Валютно-обмінні операції</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Інше</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Онлайн-сервіси</a>
+                        <a href="#" class="footer-link">Онлайн-передплата</a>
+                        <a href="#" class="footer-link">Поштовий маркет</a>
+                        <a href="#" class="footer-link">Продукти «Власної марки»</a>
+                        <a href="#" class="footer-link">Періодичні видання</a>
+                        <a href="#" class="footer-link">Для видавців</a>
+                        <a href="#" class="footer-link">Посткросинг</a>
+                        <a href="#" class="footer-link">Секограма</a>
+                        <a href="#" class="footer-link">Знайти індекс</a>
+                        <a href="#" class="footer-link">Знайти адресу</a>
+                        <a href="#" class="footer-link">Знайти відділення</a>
+                        <a href="#" class="footer-link">Довідка</a>
+                        <a href="#" class="footer-link">API від Укрпошти</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.style.display = navMenu.style.display === 'block' ? 'none' : 'block';
+        }
+        
+        // Search functionality
+        document.querySelector('.search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const searchValue = this.value;
+                if (searchValue.trim()) {
+                    alert('Пошук: ' + searchValue);
+                }
+            }
+        });
+        
+        // Index search functionality
+        document.querySelector('.index-btn').addEventListener('click', function() {
+            const indexInput = document.querySelector('.index-input');
+            const searchValue = indexInput.value;
+            if (searchValue.trim()) {
+                alert('Пошук індексу для: ' + searchValue);
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add loading states for buttons
+        document.querySelectorAll('.business-btn, .index-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const originalText = this.textContent;
+                this.textContent = 'Завантаження...';
+                this.disabled = true;
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.disabled = false;
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
